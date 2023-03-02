@@ -6,6 +6,7 @@ import { Button } from "components/Button/Button"
 import { Loader } from './Loader/Loader';
 import Modal from './Modal/Modal';
 
+import { Container } from './App.styled';
 
 const Status = {
   IDLE: 'idle',
@@ -64,13 +65,13 @@ export default class App extends Component {
   render() {
     const { images, status, showModal, largeImageURL, tags } = this.state;
     return (
-      <div>
+      <Container >
         <SearchForm onSubmit={this.handleFormSubmit} />
         {status === Status.PENDING && <Loader />}
         <ImageGallery images={images} onClick={this.toogleModal} />
         {!images.length || (<Button onClick={this.handleBtnClick} />)}
-        {showModal && <Modal onClose={this.toogleModal}><img onClose={this.toogleModal} src={largeImageURL} alt={tags} /></Modal>}
-      </div>
+        {showModal && <Modal onClose={this.toogleModal}><img src={largeImageURL} alt={tags} /></Modal>}
+      </Container >
     )
   }
 }

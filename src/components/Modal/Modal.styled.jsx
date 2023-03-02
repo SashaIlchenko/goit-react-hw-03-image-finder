@@ -13,5 +13,5 @@ position: fixed;
   z-index: 1200;`
 
 export const ModalView = styled.div`
-   max-width: calc(100vw - 48px);
-  max-height: calc(100vh - 24px);`
+   max-width: calc(100vw - 196px);
+  max-height: calc(100vh - 48px);`
