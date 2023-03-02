@@ -1,4 +1,5 @@
 import { Component } from "react";
+import { BsSearch } from "react-icons/bs"
 import { Header, SearchForm, SearchBtn, BtnLabel, FormInput } from "./Searchbar.styled";
 export default class SearhForm extends Component {
     state = {
@@ -16,7 +17,7 @@ export default class SearhForm extends Component {
     render() {
         return (< Header>
             <SearchForm onSubmit={this.handleSubmit}  >
-                <SearchBtn type="submit" class="button">
+                <SearchBtn type="submit" class="button"><BsSearch />
                     <BtnLabel>Search</BtnLabel>
                 </SearchBtn>
 

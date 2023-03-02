@@ -7,7 +7,7 @@ export const Loader = () => {
             color="#4fa94d"
             ariaLabel="grid-loading"
             radius="12.5"
-            wrapperStyle={{}}
+            wrapperStyle={{ position: "fixed", top: "50%", left: "50%", zIndex: "100" }}
             wrapperClass=""
             visible={true}
         /></div>
