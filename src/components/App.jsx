@@ -5,9 +5,7 @@ import { ImageGallery } from './ImageGallery/ImageGallery'
 import { Button } from "components/Button/Button"
 import { Loader } from './Loader/Loader';
 import { Toaster, toast } from "react-hot-toast";
-
 import Modal from './Modal/Modal';
-
 import { Container } from './App.styled';
 
 const Status = {

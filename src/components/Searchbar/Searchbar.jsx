@@ -27,6 +27,7 @@ export default class SearhForm extends Component {
                     autoFocus
                     placeholder="Search images and photos"
                     name="imageName"
+                    value={this.state.imageName}
                 />
             </SearchForm>
         </ Header>)
