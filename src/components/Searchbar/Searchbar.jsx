@@ -7,7 +7,6 @@ export default class SearhForm extends Component {
     }
     handleChange = evt => {
         this.setState({ imageName: evt.currentTarget.value.toLowerCase() })
-        console.log(evt.currentTarget.value)
     }
     handleSubmit = evt => {
         evt.preventDefault();
@@ -17,15 +16,15 @@ export default class SearhForm extends Component {
     render() {
         return (< Header>
             <SearchForm onSubmit={this.handleSubmit}  >
-                <SearchBtn type="submit" class="button"><BsSearch />
+                <SearchBtn type="submit"><BsSearch />
                     <BtnLabel>Search</BtnLabel>
                 </SearchBtn>
 
                 <FormInput
                     onChange={this.handleChange}
                     type="text"
-                    autocomplete="off"
-                    autofocus
+                    autoComplete="off"
+                    autoFocus
                     placeholder="Search images and photos"
                     name="imageName"
                 />

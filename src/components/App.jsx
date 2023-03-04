@@ -4,6 +4,8 @@ import SearchForm from './Searchbar/Searchbar'
 import { ImageGallery } from './ImageGallery/ImageGallery'
 import { Button } from "components/Button/Button"
 import { Loader } from './Loader/Loader';
+import { Toaster, toast } from "react-hot-toast";
+
 import Modal from './Modal/Modal';
 
 import { Container } from './App.styled';
@@ -32,8 +34,9 @@ export default class App extends Component {
       try {
         this.setState({ status: Status.PENDING });
         const newImages = await fetchImage(imageName, page);
-        if (imageName.trim() === '' || newImages.length === 0) {
-          return alert(`no picture with name ${imageName}`);
+        if (!imageName.trim() || !newImages.length) {
+          this.setState({ status: Status.REJECTED });
+          return toast.error(`no picture with name ${imageName}`);
         }
         this.setState({
           images: [...this.state.images, ...newImages],
@@ -41,9 +44,7 @@ export default class App extends Component {
         });
       } catch (error) {
         this.setState({ status: Status.REJECTED });
-        return alert('smt going wrong');
-      } finally {
-        this.setState({ status: Status.IDLE })
+        return toast.error('smt going wrong');
       }
     }
   }
@@ -66,12 +67,17 @@ export default class App extends Component {
     const { images, status, showModal, largeImageURL, tags } = this.state;
     return (
       <Container >
+        <Toaster position='top-right'
+          toastOptions={{
+            duration: 1500,
+          }} />
         <SearchForm onSubmit={this.handleFormSubmit} />
         {status === Status.PENDING && <Loader />}
         <ImageGallery images={images} onClick={this.toogleModal} />
         {!images.length || (<Button onClick={this.handleBtnClick} />)}
         {showModal && <Modal onClose={this.toogleModal}><img src={largeImageURL} alt={tags} /></Modal>}
       </Container >
+
     )
   }
 }

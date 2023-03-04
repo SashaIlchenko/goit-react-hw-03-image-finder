@@ -6,7 +6,6 @@ const fetchImage = async (name, page) => {
     const { data } = await axios.get(
         `https://pixabay.com/api/?q=${name}&page=${page}&key=${KEY}&image_type=photo&orientation=horizontal&per_page=12`,
     );
-    console.log(data);
     return data.hits;
 };
 

@@ -10,12 +10,9 @@ export const ImageGalleryItem = ({ webformatURL,
     )
 }
 
-
-
 ImageGalleryItem.propTypes = {
-    image: PropTypes.shape({
-        webformatURL: PropTypes.string.isRequired,
-        tags: PropTypes.string.isRequired,
-    }).isRequired,
+    largeImageURL: PropTypes.string.isRequired,
+    webformatURL: PropTypes.string.isRequired,
+    tags: PropTypes.string.isRequired,
     onClick: PropTypes.func.isRequired,
 };
